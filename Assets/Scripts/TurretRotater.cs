@@ -22,17 +22,21 @@ public class TurretRotater : MonoBehaviour
 
         transform.up = direction;
 
-        Vector3 rotation = Quaternion.;
+        Vector3 rotation = transform.rotation.eulerAngles;
 
-        if (rotation.z >= 0 )
+        Debug.Log(rotation); 
+
+        if (rotation.z > 1 && rotation.z < 90)
         {
             rotation.z = 0;
         }
         
-        if (rotation.z <= -90)
+        if ( rotation.z < 270 && rotation.z > 90)
         {
-            rotation.z = -90;
+            rotation.z = 270;
         }
-        
+
+        transform.rotation = Quaternion.Euler(rotation);
+
     }
 }
