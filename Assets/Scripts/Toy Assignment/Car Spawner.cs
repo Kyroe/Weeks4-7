@@ -7,6 +7,7 @@ public class CarSpawner : MonoBehaviour
     public float time;
     private Vector3 pos;
     public GameObject cat;
+    public CarDie catScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +21,7 @@ public class CarSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject getBox = box.GetComponent<GameObject>();
+        
         time -= Time.deltaTime;
         if (time < 0)
         {
@@ -32,7 +33,11 @@ public class CarSpawner : MonoBehaviour
     void CatSpawn()
     {
         pos = new Vector3(Random.Range(-6, 6),7, 0);
+        Transform getBox = box.transform;
+        CarDie carDie = catScript.GetComponent<CarDie>();
+        catScript.boxPos = getBox;
         Instantiate(cat,pos, Quaternion.identity);
+        
     }
 
 

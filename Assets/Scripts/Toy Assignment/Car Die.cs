@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class CarDie : MonoBehaviour
 {
-    public GameObject box;
+   // public GameObject box;
     public float bounds;
     public float fallSpeed;
-    public AudioSource MEOW;
-    public AudioClip hiss;
+    public float dist;
+    public Transform boxPos;
+    //public AudioSource MEOW;
+    //public AudioClip hiss;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +18,8 @@ public class CarDie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject getBox = box.GetComponent<GameObject>();
-        Transform boxPos = box.transform;
-        float dist = Vector3.Distance(transform.position, boxPos.position);
+        
+        dist = Vector3.Distance(boxPos.position, transform.position);
         if (dist < bounds)
         {
            
@@ -30,10 +31,10 @@ public class CarDie : MonoBehaviour
         carPos.y -= fallSpeed * Time.deltaTime;
         transform.position = carPos;
 
-        if (carPos.y < -6)
-        {
-            MEOW.PlayOneShot(hiss);
-        }
+        //if (carPos.y < -6)
+        //{
+        //    MEOW.PlayOneShot(hiss);
+        //}
            
         if (carPos.y < -10)
         {
