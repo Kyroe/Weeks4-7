@@ -15,7 +15,9 @@ public class Toybuttons : MonoBehaviour
         
     }
 
-    public void ClickTut()
+    // created public methods to set the tutorial image to active and inactive 
+    // mapped methods to UI buttons
+    public void ClickTut() 
     {
         tutorial.SetActive(true);
     }

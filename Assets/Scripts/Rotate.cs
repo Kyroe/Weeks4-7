@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    public float z = 0;
+    public float z;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,19 +11,11 @@ public class Rotate : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        transform.eulerAngles += new Vector3(0, 0, z);
+    { 
+        //rotate overtimes
+        transform.eulerAngles += new Vector3(0, 0, (z * Time.deltaTime));
     }
 
-    public void StartSpin()
-    {
-        z = 100;
-    } 
-
-    public void StopSpin()
-    {
-        z = 0;
-    }
 
     
 }
